@@ -33,6 +33,5 @@ Pod::Spec.new do |s|
     # エンドターゲット（アプリとか）のプリコンパイルドヘッダー汚染の恐れあり。
     s.header_dir = "DConnectSDK"
     s.public_header_files = [dcm_base_path + "/DCMDevicePluginSDK/Headers/*.h", sdk_base_path + "/DConnectSDK/DConnectSDK/*.h"]
-    s.source_files = dcm_base_path + "/DCMDevicePluginSDK/Headers/*.h", dcm_base_path + "/DCMDevicePluginSDK/Classes/**/*.h", sdk_base_path + "/DConnectSDK/DConnectSDK/*.h", sdk_base_path + "/DConnectSDK/{Classes,Dependencies}/**/*.h"
 
 end
