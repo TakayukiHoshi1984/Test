@@ -15,7 +15,6 @@ Pod::Spec.new do |s|
     Device Connect is an IoT solution for interconnecting various modern devices.
     Also available in Android: https://github.com/DeviceConnect/DeviceConnect-Android .
     DESC
-    
 
     # プロパティのweak属性と、automatic property synthesisをサポートするために6.0以降が必要。
     s.platform     = :ios, "9.0"
@@ -32,8 +31,8 @@ Pod::Spec.new do |s|
     sdk_base_path = "dConnectSDK/dConnectSDKForIOS"
 
     # エンドターゲット（アプリとか）のプリコンパイルドヘッダー汚染の恐れあり。
-    s.header_dir = "DConnectSDK", "DCMDevicePluginSDK"
-    s.public_header_files = dcm_base_path + "/DCMDevicePluginSDK/Headers/*.h", sdk_base_path + "/DConnectSDK/DConnectSDK/*.h"
+    s.header_dir = "DConnectSDK"
+    s.public_header_files = [dcm_base_path + "/DCMDevicePluginSDK/Headers/*.h", sdk_base_path + "/DConnectSDK/DConnectSDK/*.h"]
     s.source_files = dcm_base_path + "/DCMDevicePluginSDK/Headers/*.h", dcm_base_path + "/DCMDevicePluginSDK/Classes/**/*.h", sdk_base_path + "/DConnectSDK/DConnectSDK/*.h", sdk_base_path + "/DConnectSDK/{Classes,Dependencies}/**/*.h"
 
 end
