@@ -35,5 +35,5 @@ Pod::Spec.new do |s|
     s.header_dir = "DConnectSDK", "DCMDevicePluginSDK"
     s.public_header_files = dcm_base_path + "/DCMDevicePluginSDK/Headers/*.h", sdk_base_path + "/DConnectSDK/DConnectSDK/*.h"
 
-    s.dependency "DeviceConnectSDK"
+    s.dependency "DeviceConnectPluginSDK"
 end
