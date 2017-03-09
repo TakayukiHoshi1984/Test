@@ -4,5 +4,3 @@
 テストコメント３
 
 [wiki](wiki)
-
-[en](readme.en.md)
