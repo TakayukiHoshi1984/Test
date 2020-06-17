@@ -1,0 +1,40 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: JDK 1.8
+    runs-on: macOS-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Install JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Install Android SDK
+        uses: malinskiy/action-android/install-sdk@release/0.0.5
+      - name: Build project
+        run: |
+          pwd
+          chmod +x ./gradlew
+          sudo ./gradlew assemble --stacktrace
+      - name: Run instrumentation tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 23
+          target: default
+          arch: x86
+          profile: Nexus 6
+          script: sudo ./gradlew connectedCheck --stacktrace
+      - name: show Directory
+        run: |
+          pwd
+          ls ../
+      # Archiving code coverage results 
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v1
+        with:
+          name: code-coverage-report
+          path: app/build/reports/androidTests/connected/index.html
